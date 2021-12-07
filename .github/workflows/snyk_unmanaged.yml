@@ -1,4 +1,4 @@
-name: "Snyk C++ Scan"
+name: "Snyk Unmanaged Scan"
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
   Pipeline-Job:
     # Configure Environment
-    name: 'Snyk Code Scan'
+    name: 'Snyk Unmanaged Scan'
     runs-on: ubuntu-latest
     env: 
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
@@ -24,7 +24,7 @@ jobs:
          sudo npm install -g snyk
          snyk auth ${SNYK_TOKEN}
     # Run Snyk Code
-    - name: Run Snyk Code
+    - name: Run Snyk Unmanaged Scan
       run: |
          snyk unmanaged monitor
       continue-on-error: true
